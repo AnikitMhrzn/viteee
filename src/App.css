@@ -1,0 +1,124 @@
+/* =========================
+   Base & Reset
+========================= */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* =========================
+   Dark/Light Mode
+========================= */
+html.dark {
+  --bg-color: #242424;
+  --text-color: rgba(255,255,255,0.87);
+  --footer-bg: #1a1a1a;
+  --footer-border: #333;
+  --menubar-bg: #1a1a1a;
+  --menubar-border: #333;
+  --button-bg: #1a1a1a;
+  --button-text: rgba(255,255,255,0.87);
+}
+
+html:not(.dark) {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --footer-bg: #f5f5f5;
+  --footer-border: #ddd;
+  --menubar-bg: #ffffff;
+  --menubar-border: #ddd;
+  --button-bg: #f9f9f9;
+  --button-text: #213547;
+}
+
+/* =========================
+   Body
+========================= */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* =========================
+   Buttons
+========================= */
+button,
+.p-button {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+button:hover,
+.p-button:hover {
+  border-color: #646cff !important;
+}
+
+/* =========================
+   App Layout
+========================= */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* =========================
+   Footer
+========================= */
+.app-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--text-color);
+}
+
+/* =========================
+   PrimeReact Menubar
+========================= */
+.p-menubar {
+  background-color: var(--menubar-bg) !important;
+  border-color: var(--menubar-border) !important;
+  color: var(--text-color) !important;
+}
+
+/* Menubar links */
+.p-menubar .p-menuitem-link {
+  color: var(--text-color) !important;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 600px) {
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-right {
+    margin-top: 0.5rem;
+  }
+}
+  
