@@ -1,0 +1,466 @@
+/* =========================
+   Base & Reset
+========================= */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* =========================
+   Dark/Light Mode
+========================= */
+html.dark {
+  --bg-color: #242424;
+  --text-color: rgba(255,255,255,0.87);
+  --footer-bg: #1a1a1a;
+  --footer-border: #333;
+  --menubar-bg: #1a1a1a;
+  --menubar-border: #333;
+  --button-bg: #1a1a1a;
+  --button-text: rgba(255,255,255,0.87);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.18);
+  --surface-border: rgba(255, 255, 255, 0.18);
+}
+
+html:not(.dark) {
+  --bg-color: #f8f9fa;
+  --text-color: #213547;
+  --footer-bg: #ffffff;
+  --footer-border: #e0e0e0;
+  --menubar-bg: #ffffff;
+  --menubar-border: #e0e0e0;
+  --button-bg: #f9f9f9;
+  --button-text: #213547;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --surface-border: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   Body
+========================= */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* =========================
+   Buttons
+========================= */
+button,
+.p-button {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled),
+.p-button:hover:not(:disabled) {
+  border-color: #646cff !important;
+  transform: translateY(-1px);
+}
+
+button:disabled,
+.p-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.p-button-rounded {
+  border-radius: 50%;
+  padding: 0.75rem;
+}
+
+.p-button-text {
+  background-color: transparent !important;
+}
+
+/* =========================
+   App Layout
+========================= */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* =========================
+   Footer
+========================= */
+.app-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--text-color);
+}
+
+/* =========================
+   PrimeReact Menubar
+========================= */
+.p-menubar {
+  background-color: var(--menubar-bg) !important;
+  border-color: var(--menubar-border) !important;
+  color: var(--text-color) !important;
+  padding: 1rem 1.5rem;
+}
+
+.p-menubar .p-menuitem-link {
+  color: var(--text-color) !important;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.p-menubar .p-menuitem-link:hover {
+  background-color: rgba(100, 108, 255, 0.1) !important;
+}
+
+/* =========================
+   PrimeReact Card & DataView
+========================= */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.p-dataview-header {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 1rem 0 !important;
+}
+
+.surface-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  transition: all 0.3s ease;
+}
+
+.surface-card:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.surface-border {
+  border-color: var(--surface-border) !important;
+}
+
+.border-1 {
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.border-round {
+  border-radius: 8px !important;
+}
+
+/* =========================
+   PrimeReact Rating
+========================= */
+.p-rating .p-rating-icon {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+/* =========================
+   PrimeReact Tag
+========================= */
+.p-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.p-tag-success {
+  background-color: #22c55e;
+  color: white;
+}
+
+.p-tag-warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.p-tag-danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* =========================
+   Layout Toggle Buttons
+========================= */
+.layout-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.layout-toggle .p-button {
+  padding: 0.5rem 1rem;
+}
+
+/* =========================
+   PrimeReact Flexbox Utilities
+========================= */
+.flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.flex-1 {
+  flex: 1 !important;
+}
+
+/* =========================
+   PrimeReact Grid System
+========================= */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+}
+
+.grid-nogutter {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.grid > * {
+  box-sizing: border-box;
+}
+
+.col-12 {
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* =========================
+   PrimeReact Spacing
+========================= */
+.gap-2 {
+  gap: 0.5rem !important;
+}
+
+.gap-3 {
+  gap: 0.75rem !important;
+}
+
+.gap-4 {
+  gap: 1rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.py-5 {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* =========================
+   PrimeReact Typography
+========================= */
+.text-2xl {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+
+.text-900 {
+  color: var(--text-color) !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.font-semibold {
+  font-weight: 600 !important;
+}
+
+/* Glass cards - text stays visible */
+html.dark .surface-card .text-2xl,
+html.dark .surface-card .font-semibold,
+html.dark .surface-card .font-bold,
+html.dark .surface-card span {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* =========================
+   PrimeReact Width
+========================= */
+.w-9 {
+  width: 75% !important;
+}
+
+.shadow-2 {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.block {
+  display: block !important;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (min-width: 576px) {
+  .sm\:col-6 {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 50%;
+  }
+
+  .sm\:w-16rem {
+    width: 16rem !important;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .sm\:flex-column {
+    flex-direction: column !important;
+  }
+
+  .sm\:align-items-start {
+    align-items: flex-start !important;
+  }
+
+  .sm\:align-items-end {
+    align-items: flex-end !important;
+  }
+
+  .sm\:gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .lg\:col-12 {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .xl\:col-4 {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 33.3333%;
+  }
+
+  .xl\:w-10rem {
+    width: 10rem !important;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .xl\:align-items-start {
+    align-items: flex-start !important;
+  }
+
+  .xl\:block {
+    display: block !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    margin-top: 0.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
